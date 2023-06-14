@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./index.css";
 import { useState, useEffect } from "react";
 
 function getRandomQuote(quotes) {
@@ -25,7 +25,7 @@ export default function App() {
         <main>
             <h1>Mustafa Ece's Quote Generator</h1>
             <section>
-                <button onClick={getNewQuote} > Read More </button>
+                <button id="btn" onClick={getNewQuote} > Read More </button>
                 <h3>
                     <span>“</span>
                     {quote?.text}
