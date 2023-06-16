@@ -14,7 +14,8 @@ This is a small React project that implements a shopping list application. Users
 - React: JavaScript library for building user interfaces
 - CSS: Styling the user interface
 ## Screenshot
-![](screenshot.png)
+![image](https://github.com/mstfece/React-Small-Projects/assets/82402952/980ac31a-1e78-41ef-b5db-b9b7896bd9f5)
+
 
 
 # Getting Started with Create React App
