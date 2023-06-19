@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import { useState } from "react"; 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const API_URL = "https://api.github.com";
+
+async function fetchResults(query) {
+  try {
+    const response = await fetch(`${API_URL}/search/users?q=${query}`);
+    const json = await response.json();
+    return json.items || [];
+  } catch (e) {
+    throw new Error(e);
+  }
 }
+export default function App() {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  function onSearchChange(event) {
+    setQuery(event.target.value);
+  }
+
+  async function onSearchSubmit(event) {
+    event.preventDefault();
+    const results = await fetchResults(query);
+    setResults(results);
+  }
 
 export default App;
