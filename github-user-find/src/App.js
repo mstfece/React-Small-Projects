@@ -50,4 +50,29 @@ export default function App() {
       </main>
     </div>
   );
-export default App;
+function User({ avatar, url, username }) {
+  return (
+    <div className="user">
+      <img src={avatar} alt="Profile" width="50" height="50" />
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {username}
+      </a>
+    </div>
+  );
+}
+
+function Form({ onSubmit, onChange, value }) {
+  return (
+    <form className="search-form" onSubmit={onSubmit}>
+      <input
+        id="search"
+        type="text"
+        placeholder="Enter username or email"
+        onChange={onChange}
+        value={value}
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
+}
+
